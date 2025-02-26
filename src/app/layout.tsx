@@ -15,23 +15,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh">
-      <body className="bg-gray-50 min-h-screen">
-        <header className="bg-white border-b border-gray-200 mb-8">
-          <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors">
-              小吴乐意的博客
-            </Link>
-            <nav className="flex gap-4">
-              <Link href="/archives" className="text-gray-600 hover:text-gray-900 transition-colors">
-                归档
-              </Link>
-            </nav>
-          </div>
-        </header>
-        <main className="max-w-4xl mx-auto">
-          {children}
-        </main>
+    <html lang="zh-CN">
+      <body className={inter.className}>
+        <div className="min-h-screen flex flex-col">
+          <header className="border-b">
+            <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+              <Link href="/" className="text-xl font-bold">小吴乐意的博客</Link>
+              <nav>
+                <Link href="/archives" className="text-gray-600 hover:text-wechat-link">归档</Link>
+              </nav>
+            </div>
+          </header>
+          <main className="flex-1 max-w-4xl mx-auto px-6 py-8 w-full">{children}</main>
+          <footer className="py-8 text-center text-sm text-gray-500 border-t">
+            <p>© {new Date().getFullYear()} 小吴乐意的博客. All rights reserved.</p>
+          </footer>
+        </div>
       </body>
     </html>
   )
