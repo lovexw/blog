@@ -60,6 +60,30 @@ export function getAllPosts(): Post[] {
   return posts
 }
 
+export async function getPost(id: string) {
+  const postsDirectory = path.join(process.cwd(), 'posts')
+  const fullPath = path.join(postsDirectory, `${id}.md`)
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const { data, content } = matter(fileContents)
+  
+  return {
+    id,
+    title: data.title || '',
+    date: data.date || '',
+    description: data.description || '',
+    contentHtml: content
+  }
+}
+
+export function getAllPostIds() {
+  const postsDirectory = path.join(process.cwd(), 'posts')
+  const fileNames = fs.readdirSync(postsDirectory)
+  
+  return fileNames
+    .filter(fileName => fileName.endsWith('.md'))
+    .map(fileName => fileName.replace(/\.md$/, ''))
+}
+
 export function getAdjacentPosts(currentSlug: string): { prev: Post | null; next: Post | null } {
   const posts = getAllPosts()
   const currentIndex = posts.findIndex(post => post.slug === currentSlug)

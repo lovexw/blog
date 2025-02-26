@@ -47,6 +47,16 @@ export default function PostContainer({ initialPosts, currentPage }: PostContain
           />
         )}
       </div>
+      <div className="mt-8 text-center">
+        <a
+          href="https://www.xiaowuleyi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          小吴乐意个人主页
+        </a>
+      </div>
     </div>
   )
 }

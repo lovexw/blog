@@ -84,6 +84,16 @@ export default function Post({ params }: { params: { slug: string } }) {
           )
         })()}
       </nav>
+      <div className="mt-8 text-center">
+        <a
+          href="https://www.xiaowuleyi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-600 hover:text-gray-900 transition-colors"
+        >
+          小吴乐意个人主页
+        </a>
+      </div>
     </article>
   )
 }
